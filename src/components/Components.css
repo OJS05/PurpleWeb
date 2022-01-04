@@ -1,0 +1,121 @@
+header {
+    background: url('../assets/header-bg.jpg')no-repeat center center !important;
+    background-size: cover !important;
+    padding-top: 12rem !important;
+    padding-bottom: 12rem !important;
+}
+
+title {
+    z-index: 1 !important;
+}
+
+.logo {
+    width: 25rem !important;
+    height: 25rem !important;
+}
+
+.icon {
+    width: 6rem !important;
+    height: 6rem !important;
+    padding: 0.5rem !important;
+    color: #007bff !important;
+}
+
+.footer {
+    background: url('../assets/header-bg.jpg')no-repeat center center !important;
+    background-size: cover !important;
+}
+  
+.discord {
+    height: 6rem !important;
+    padding: 0.5rem !important;
+    color: #007bff !important;
+}
+  
+.players {
+    padding-bottom: 3rem !important;
+}
+
+.carousel-indicators button{
+    width: 2rem !important;
+    display: block !important;
+    background-color: darkgray !important;
+    border: none !important;
+}
+
+.team-boxed {
+    color: #313437 !important;
+    background-color: #eef4f7 !important;
+}
+
+.team-boxed .intro {
+    font-size: 16px !important;
+    max-width: 500px !important;
+    margin: 0 auto !important;
+}
+
+.team-boxed .intro p {
+    margin-bottom: 3rem
+}
+
+.team-boxed p {
+    color: #7d8285 !important;
+}
+
+.team-boxed h2 {
+    margin-bottom: 40px !important;
+    padding-top: 40px !important;
+    color: inherit !important;
+}
+
+.team-boxed .item {
+    text-align: center !important;
+}
+
+.team-boxed .item img {
+    transform: scaleX(-1) !important;
+    max-width: 160px !important;
+    height: 150.312px;
+}
+
+.sub-img {
+    max-height: 150px !important;
+}
+
+.team-boxed .item .title {
+    text-transform: uppercase !important;
+    color: #d0d0d0 !important;
+    letter-spacing: 2px !important;
+    font-size: 13px !important;
+}
+
+.team-boxed .item .box {
+  text-align: center !important;
+  padding: 30px !important;
+  background-color: #fff !important;
+  margin-bottom: 30px !important;
+}
+
+.grow:hover {
+    transform: scale(1.05) !important;
+}
+  
+.grow {
+    transition: all .2s ease-in-out !important;
+}
+
+.min-height {
+    min-height: 10rem;
+}
+
+.bg-white {
+    background-color: #fff !important;
+}
+
+Form {
+    padding-bottom: 1rem;
+}
+
+Label {
+    padding-top: 1rem;
+}

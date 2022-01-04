@@ -1,0 +1,31 @@
+<section id="1" class="features-icons bg-light text-center">
+          <Container>
+            <Row>
+              <Col class="col-lg-4">
+                <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                  <div class="features-icons-icon d-flex">
+                    <i class="fas fa-people-carry m-auto text-primary"></i>
+                  </div>
+                  <h3>Tight Community</h3>
+                  <p class="lead mb-0">One thing Purple prides itself on is its community. By interacting on a regular basis, we aim to build great relationships with each other both in game and in reality.</p>
+                </div>
+              </Col>
+              <Col class="col-lg-4">
+                <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                  <div class="features-icons-icon d-flex">
+                    <i class="fas fa-people-carry m-auto text-primary"></i>
+                  </div>
+                  <h3>Australian Server</h3>
+                  <p class="lead mb-0">Purple is based in Sydney, Australia. Don't be intimidated by the time zones though as we harbor an international community of Minecrafters.</p>                </div>
+              </Col>
+              <Col class="col-lg-4">
+                <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                  <div class="features-icons-icon d-flex">
+                    <i class="fas fa-people-carry m-auto text-primary"></i>
+                  </div>
+                  <h3>Modern Hardware</h3>
+                  <p class="lead mb-0">Purple is ran on a virtual machine with a huge 24 gigabytes of RAM, and 4 whole CPU cores. This high quality housing ensures that you get the best possible experience on Purple.</p>                </div>
+              </Col>
+            </Row>
+          </Container>
+        </section>
