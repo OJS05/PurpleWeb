@@ -4,7 +4,7 @@ import {Alert, Button, Container, Form} from 'react-bootstrap';
 import {gql, useMutation} from "@apollo/client";
 
 const INSERT_APPLICATION = gql`
-    mutation InsertApplication($age: Int!, $reason: String!, $username: String!, $discordId: BigInt!) {
+    mutation InsertApplication($age: Int!, $reason: String!, $username: String!, $discordId: String!) {
         insert_applications(objects: {age: $age, checked: false, reason: $reason, username: $username, discord_id: $discordId}) {
             affected_rows
         }
@@ -16,7 +16,7 @@ function Apply(props) {
     const [username, setUsername] = useState("");
     const [age, setAge] = useState(null);
     const [reason, setReason] = useState("");
-    const [discordId, setDiscordId] = useState(null);
+    const [discordId, setDiscordId] = useState("");
 
     const [alert, setAlert] = useState(null);
 
@@ -24,8 +24,9 @@ function Apply(props) {
         const usernameIsValid = usernameValid();
         const ageIsValid = ageValid();
         const reasonIsValid = reasonValid();
-        const idIsValid = idValid();
-        return !!(ageIsValid && reasonIsValid && usernameIsValid && idIsValid);
+        const discordIdIsValid = discordIdValid();
+
+        return !!(ageIsValid && reasonIsValid && usernameIsValid && discordIdIsValid);
     };
 
     const usernameValid = () => {
@@ -33,9 +34,9 @@ function Apply(props) {
         return length >= 3 && length <= 16;
     };
 
-    const idValid = () => {
+    const discordIdValid = () => {
         const length = discordId.length;
-        return length == 18;
+        return length === 18;
     }
 
     const ageValid = () => {
@@ -55,7 +56,7 @@ function Apply(props) {
     const handleSubmission = () => {
         if (validateInputs()) {
             // Submit application and show success alert.
-            insertApplication({variables: {age: age, reason: reason, username: username}});
+            insertApplication({variables: {age: age, reason: reason, username: username, discordId: discordId}});
             setAlert(<Alert className={"submit-alert"} variant="success">Application submitted!</Alert>);
         } else {
             // Show error alert.
@@ -81,9 +82,9 @@ function Apply(props) {
                     <Form.Group>
                         <Form.Label>Discord ID</Form.Label>
                         <Form.Control type="number"
-                                      placeholder="To get your id please join the Discord server."
+                                      placeholder="To get your ID please join the Discord server"
                                       onChange={event => setDiscordId(event.target.value)}
-                                      isValid={idValid()}/>
+                                      isValid={discordIdValid()}/>
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Age</Form.Label>
