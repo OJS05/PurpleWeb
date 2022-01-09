@@ -4,8 +4,8 @@ import {Alert, Button, Container, Form} from 'react-bootstrap';
 import {gql, useMutation} from "@apollo/client";
 
 const INSERT_APPLICATION = gql`
-    mutation InsertApplication($age: Int!, $reason: String!, $username: String!) {
-        insert_applications(objects: {age: $age, checked: false, reason: $reason, username: $username}) {
+    mutation InsertApplication($age: Int!, $reason: String!, $username: String!, $discordId: BigInt!) {
+        insert_applications(objects: {age: $age, checked: false, reason: $reason, username: $username, discord_id: $discordId}) {
             affected_rows
         }
     }
@@ -16,6 +16,7 @@ function Apply(props) {
     const [username, setUsername] = useState("");
     const [age, setAge] = useState(null);
     const [reason, setReason] = useState("");
+    const [discordId, setDiscordId] = useState(null);
 
     const [alert, setAlert] = useState(null);
 
@@ -23,13 +24,19 @@ function Apply(props) {
         const usernameIsValid = usernameValid();
         const ageIsValid = ageValid();
         const reasonIsValid = reasonValid();
-        return !!(ageIsValid && reasonIsValid && usernameIsValid);
+        const idIsValid = idValid();
+        return !!(ageIsValid && reasonIsValid && usernameIsValid && idIsValid);
     };
 
     const usernameValid = () => {
         const length = username.length;
         return length >= 3 && length <= 16;
     };
+
+    const idValid = () => {
+        const length = discordId.length;
+        return length == 18;
+    }
 
     const ageValid = () => {
         const parsedAge = parseInt(age);
@@ -38,7 +45,7 @@ function Apply(props) {
             return false;
         }
 
-        return parsedAge >= 18;
+        return parsedAge >= 16;
     };
 
     const reasonValid = () => {
@@ -70,6 +77,13 @@ function Apply(props) {
                                       placeholder="Enter your username"
                                       onChange={event => setUsername(event.target.value)}
                                       isValid={usernameValid()}/>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Discord ID</Form.Label>
+                        <Form.Control type="number"
+                                      placeholder="To get your id please join the Discord server."
+                                      onChange={event => setDiscordId(event.target.value)}
+                                      isValid={idValid()}/>
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Age</Form.Label>
