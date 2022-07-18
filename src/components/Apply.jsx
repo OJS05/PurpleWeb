@@ -5,7 +5,7 @@ import {gql, useMutation} from "@apollo/client";
 
 const INSERT_APPLICATION = gql`
     mutation InsertApplication($age: Int!, $reason: String!, $username: String!, $discordId: String!) {
-        insert_applications(objects: {age: $age, checked: false, reason: $reason, username: $username, discord_id: $discordId}) {
+        insert_applications(objects: {age: $age, checked: false, reason: $reason, username: $username, discord: $discordId}) {
             affected_rows
         }
     }
@@ -35,8 +35,7 @@ function Apply(props) {
     };
 
     const discordIdValid = () => {
-        const length = discordId.length;
-        return length === 18;
+        return reason.length >= 2;
     }
 
     const ageValid = () => {
@@ -80,9 +79,9 @@ function Apply(props) {
                                       isValid={usernameValid()}/>
                     </Form.Group>
                     <Form.Group>
-                        <Form.Label>Discord ID</Form.Label>
-                        <Form.Control type="number"
-                                      placeholder="To get your ID please join the Discord server"
+                        <Form.Label>Discord Username</Form.Label>
+                        <Form.Control type="text"
+                                      placeholder="Enter your Discord username"
                                       onChange={event => setDiscordId(event.target.value)}
                                       isValid={discordIdValid()}/>
                     </Form.Group>
