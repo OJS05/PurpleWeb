@@ -8,7 +8,12 @@ import {ApolloClient, ApolloProvider, InMemoryCache,} from "@apollo/client";
 
 const client = new ApolloClient({
     uri: 'https://gql.ojs05.live/v1/graphql',
-    cache: new InMemoryCache()
+    cache: new InMemoryCache(),
+    connectionParams: {
+        headers: {
+            'x-hasura-admin-secret': HASURA_SECRET
+        }
+      }
 });
 
 ReactDOM.render(
